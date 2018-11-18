@@ -77,10 +77,10 @@ Ball.prototype.collisionDetect = function(){
 }
 
 // EvilCircle constructor
-function EvilCircle(x, y, exists, color, size) {
+function EvilCircle(x, y, exists, size) {
 	Shape.call(this, x, y, 20, 20, exists);
 	this.color = 'white';
-	size = 10;
+	this.size = size;
 }
 
 EvilCircle.prototype = Object.create(Shape.prototype);
