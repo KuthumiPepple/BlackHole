@@ -154,6 +154,10 @@ EvilCircle.prototype.collisionDetect = function(){
 
 
 var balls = [];
+var evilCircleSize = 10;
+var evilCircle = new EvilCircle(random(0 + evilCircleSize, width - evilCircleSize), random(0 + evilCircleSize, height - evilCircleSize), 
+	true, evilCircleSize);
+evilCircle.setControls();
 
 function loop() {
 	ctx.fillStyle = 'rgba(0, 0, 0, 0.25)';
