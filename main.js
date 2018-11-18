@@ -90,6 +90,13 @@ Object.defineProperty(EvilCircle.prototype, 'constructor', {
 	writable: true
 });
 
+EvilCircle.prototype.draw = function(){
+	ctx.beginPath();
+	ctx.strokeSyle = this.color;
+	ctx.arc(this.x, this.y, this.size, 0, 2 * Math.PI);
+	this.stroke();
+}
+
 
 var balls = [];
 
