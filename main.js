@@ -147,12 +147,15 @@ EvilCircle.prototype.collisionDetect = function(){
 
 			if(distance < this.size + balls[j].size){
 				balls[j].exists = false;
+				count--;
 			}
 		}
 	}
 }
 
 
+var para = document.querySelector('p');
+var count = 0;
 var balls = [];
 var evilCircleSize = 10;
 var evilCircle = new EvilCircle(random(0 + evilCircleSize, width - evilCircleSize), random(0 + evilCircleSize, height - evilCircleSize), 
@@ -168,6 +171,7 @@ function loop() {
 		var ball = new Ball(random(0 + size, width - size), random(0 + size, height - size), random(-7, 7), 
 			random(-7, 7), true, 'rgb(' + random(0, 255) + ',' + random(0, 255) + ',' + random(0, 255) + ')', size);
 		balls.push(ball);
+		count++;
 	}
 
 	for(var i = 0; i < balls.length; i++){
@@ -181,6 +185,8 @@ function loop() {
 	evilCircle.draw();
 	evilCircle.checkBounds();
 	evilCircle.collisionDetect();
+
+	para.textContent = 'asteroids left: ' + count;
 
 	requestAnimationFrame(loop);
 };
