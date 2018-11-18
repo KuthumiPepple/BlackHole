@@ -13,6 +13,14 @@ function random(min,max) {
   return num;
 }
 
+// parent constructor
+function Shape(x, y, velX, velY){
+	this.x = x;
+	this.y = y;
+	this.velX = velX;
+	this.velY = velY;
+}
+
 // ball constructor
 function Ball(x, y, velX, velY, color, size){
 	this.x = x;
