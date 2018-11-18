@@ -76,6 +76,21 @@ Ball.prototype.collisionDetect = function(){
 	}
 }
 
+// EvilCircle constructor
+function EvilCircle(x, y, velX, velY, exists, color, size) {
+	Shape.call(this, x, y, velX, velY, exists);
+	this.color = 'white';
+	size = 10;
+}
+
+EvilCircle.prototype = Object.create(Shape.prototype);
+Object.defineProperty(EvilCircle.prototype, 'constructor', {
+	value: EvilCircle,
+	emunerable: false,
+	writable: true
+});
+
+
 var balls = [];
 
 function loop() {
