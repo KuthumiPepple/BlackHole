@@ -93,9 +93,9 @@ Object.defineProperty(EvilCircle.prototype, 'constructor', {
 EvilCircle.prototype.draw = function(){
 	ctx.beginPath();
 	ctx.lineWidth = 3;
-	ctx.strokeSyle = this.color;
+	ctx.strokeStyle = this.color;
 	ctx.arc(this.x, this.y, this.size, 0, 2 * Math.PI);
-	this.stroke();
+	ctx.stroke();
 }
 
 EvilCircle.prototype.checkBounds = function(){
@@ -181,7 +181,7 @@ function loop() {
 	evilCircle.draw();
 	evilCircle.checkBounds();
 	evilCircle.collisionDetect();
-	
+
 	requestAnimationFrame(loop);
 };
 
