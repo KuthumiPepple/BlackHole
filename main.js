@@ -171,10 +171,17 @@ function loop() {
 	}
 
 	for(var i = 0; i < balls.length; i++){
-		balls[i].draw();
-		balls[i].update();
-		balls[i].collisionDetect();
+		if(balls[i].exists){
+			balls[i].draw();
+			balls[i].update();
+			balls[i].collisionDetect();
+		}
 	};
+
+	evilCircle.draw();
+	evilCircle.checkBounds();
+	evilCircle.collisionDetect();
+	
 	requestAnimationFrame(loop);
 };
 
