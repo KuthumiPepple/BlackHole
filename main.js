@@ -24,14 +24,18 @@ function Shape(x, y, velX, velY, exists){
 }
 
 // ball constructor
-function Ball(x, y, velX, velY, color, size){
-	this.x = x;
-	this.y = y;
-	this.velX = velX;
-	this.velY = velY;
+function Ball(x, y, velX, velY, exists, color, size){
+	Shape.call(this, x, y, velX, velY, exists);
 	this.color = color;
 	this.size = size;
 }
+
+Ball.prototype = Object.create(Shape.prototype);
+Object.defineProperty(Ball.prototype, 'constructor', {
+	value: Ball,
+	emunerable: false,
+	writable: true
+});
 
 Ball.prototype.draw = function(){
 	ctx.beginPath();
@@ -81,7 +85,7 @@ function loop() {
 	while(balls.length < 25){
 		var size = random(10, 20);
 		var ball = new Ball(random(0 + size, width - size), random(0 + size, height - size), random(-7, 7), 
-			random(-7, 7), 'rgb(' + random(0, 255) + ',' + random(0, 255) + ',' + random(0, 255) + ')', size);
+			random(-7, 7), true, 'rgb(' + random(0, 255) + ',' + random(0, 255) + ',' + random(0, 255) + ')', size);
 		balls.push(ball);
 	}
 
