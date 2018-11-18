@@ -92,6 +92,7 @@ Object.defineProperty(EvilCircle.prototype, 'constructor', {
 
 EvilCircle.prototype.draw = function(){
 	ctx.beginPath();
+	ctx.lineWidth = 3;
 	ctx.strokeSyle = this.color;
 	ctx.arc(this.x, this.y, this.size, 0, 2 * Math.PI);
 	this.stroke();
