@@ -114,6 +114,31 @@ EvilCircle.prototype.checkBounds = function(){
 }
 
 
+EvilCircle.prototype.setControls = function(){
+	var _this = this;
+	window.addEventListener("keydown", function(event){
+		switch(event.code){
+			case "ArrowLeft":
+			case "KeyA":
+				_this.x -= _this.velX;
+				break;
+			case "ArrowRight":
+			case "KeyD":
+				_this.x += _this.velX;
+				break;
+			case "ArrowUp":
+			case "KeyW":
+				_this.y -= _this.velY;
+				break;
+			case "ArrowDown":
+			case "KeyS":
+				_this.y += _this.velY;
+				break;
+		}
+	})
+}
+
+
 var balls = [];
 
 function loop() {
